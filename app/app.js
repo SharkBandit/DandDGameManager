@@ -1,1 +1,1 @@
-var Clark = angular.module('Clark', ['ngMaterial']);
+var Clark = angular.module('Clark', ['ngMaterial','ngFileUpload']);

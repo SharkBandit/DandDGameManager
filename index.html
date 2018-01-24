@@ -10,6 +10,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
 
 <script src="/app/modules/angular-material/1.1.5/angular-material.min.js"></script>
+<!-- File Upload Module files https://github.com/danialfarid/ng-file-upload -->
+<script src="/app/modules/ng-file-upload/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+<script src="/app/modules/ng-file-upload/ng-file-upload.min.js"></script>
 
 <script src="/app/app.js"></script>
 
@@ -17,11 +20,29 @@
 </head>
 <body ng-app="Clark">
     <div ng-controller="MainCtrl">
-        {{ favoriteFood }}<br />
-        <md-button class="md-primary md-raised" ng-click="changeFood('Bacon')">I want bacon</md-button><br />
-        <md-button class="md-primary md-raised" ng-click="changeFood('Taco')">I want taco</md-button><br />
-        <md-button class="md-primary md-raised" ng-click="changeFood('Hotdogs')">I want hotdogs</md-button><br />
-        <md-button class="md-primary md-raised" ng-click="changeFood()">I want cheeseburgers</md-button><br />
+        <div ng-hide="game.loaded">
+            <md-button class="md-primary" ngf-select="loadGameData()" ngf-drop ng-model="game.dataFile" accept="*">Load Game</md-button>
+            <md-button class="md-primary" ng-click="newGameData()">New Game</md-button>
+        </div>
+        <div ng-show="game.loaded">
+            <md-input-container>
+                <label>Name</label>
+                <input type="text" ng-model="game.data.name">
+            </md-input-container><br />
+            <md-input-container>
+                <label>Description</label>
+                <input type="text" ng-model="game.data.description">
+            </md-input-container><br />
+            <md-input-container>
+                <label>Level</label>
+                <input type="number" min="1" max="20" ng-model="game.data.level">
+            </md-input-container><br />
+            Inventory <br />
+            <div ng-repeat="item in game.data.inventory">
+                name: {{ inventoryItems[item].name }} - damage: {{ inventoryItems[item].damage }}
+            </div>
+            <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
+        </div>
     </div>
 </body>
 </html>
