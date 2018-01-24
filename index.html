@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="/app/modules/angular-material/1.1.5/angular-material.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+<script src="/app/modules/angular-material/1.1.5/angular-material.min.js"></script>
+
+<script src="/app/app.js"></script>
+
+<script src="/app/controllers/main-ctrl.js"></script>
+</head>
+<body ng-app="Clark">
+    <div ng-controller="MainCtrl">
+        {{ favoriteFood }}<br />
+        <md-button class="md-primary md-raised" ng-click="changeFood('Bacon')">I want bacon</md-button><br />
+        <md-button class="md-primary md-raised" ng-click="changeFood('Taco')">I want taco</md-button><br />
+        <md-button class="md-primary md-raised" ng-click="changeFood('Hotdogs')">I want hotdogs</md-button><br />
+        <md-button class="md-primary md-raised" ng-click="changeFood()">I want cheeseburgers</md-button><br />
+    </div>
+</body>
+</html>
