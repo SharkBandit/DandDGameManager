@@ -2,7 +2,7 @@
     {
         "name": "Acid Arrow",
         "description": "A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell Attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn. At Higher Levels: When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "instantaneous",
         "level": 2,
         "range": "90 ft"
@@ -11,7 +11,7 @@
     {
         "name": "Acid Splash",
         "description": "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. This Spells damage increases by 1d6 when you reach 5th Level (2d6), 11th level (3d6) and 17th level (4d6).",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "instantaneous",
         "level": 0,
         "range": "60 ft"
@@ -20,7 +20,7 @@
      {
         "name": "Aid",
         "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the Duration. At Higher Levels: When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "8 hours",
         "level": 2,
         "range": "30 ft"
@@ -29,7 +29,7 @@
      {
         "name": "Alarm",
         "description": "You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible. A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping. An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.",
-        "casting time": "1 minute",
+        "castingTime": "1 minute",
         "duration": "8 hours",
         "level": 1,
         "range": "30 ft"
@@ -38,7 +38,7 @@
      {
         "name": "Alter Self",
         "description": "You assume a different form. When you cast the spell, choose one of the following options, the effects of which last for the Duration of the spell. While the spell lasts, you can end one option as an action to gain the benefits of a different one. Aquatic Adaptation: You adapt your body to an aquatic Environment, sprouting gills, and growing webbing between your fingers. You can breathe Underwater and gain a swimming speed equal to your walking speed. Change Appearance: You transform your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and distinguishing characteristics, if any. You can make yourself appear as a member of another race, though none of your Statistics change. You also don't appear as a creature of a different size than you, and your basic shape stays the same, if you're bipedal, you can't use this spell to become quadrupedal, for instance. At any time for the Duration of the spell, you can use your action to change your appearance in this way again. Natural Weapons: You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the Attack and Damage Rolls you make using it.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to 1 hour",
         "level": 2,
         "range": "Self"
@@ -47,7 +47,7 @@
      {
         "name": "Animal Friendship",
         "description": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be Charmed by you for the spell's Duration. If you or one of your companions harms the target, the Spells ends. At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional beast level above 1st.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "24 hours",
         "level": 1,
         "range": "30 ft"
@@ -56,7 +56,7 @@
      {
         "name": "Animal Messenger",
         "description": "By means of this spell, you use an animal to deliver a Message. Choose a Tiny beast you can see within range, such as a squirrel, a blue ray, or a bird. You specify a location, which you must have visited, and a recipient who matches a general description, such as a man or woman dressed in the uniform of the town guard or a red-haired dwarf wearing a pointed hat. You also speak a Message of up to twenty-five words. The target beast travels for the Duration of the spell towards the specified location, covering about 50 miles per 24 hours for a flying messenger or 25 miles for Other Animals. When the messenger arrives, it delivers your Message to the creature that you described, replicating the sound of your voice. The messenger speaks only to a creature matching the description you gave. If the messenger doesn't reach its destination before the spell ends, the Message is lost, and the beast makes its way back to where you cast this spell. At Higher Levels: If you cast this spell using a spell slot of 3rd level or higher, the Duration of the spell increases by 48 hours for each slot level above 2nd.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "24 hours",
         "level": 2,
         "range": "30 ft"
@@ -65,7 +65,7 @@
      {
         "name": "Animal Shapes",
         "description": "Your magic turns others into Beasts. Choose any number of willing creatures that you can see within range. You transform each target into the form of a large or smaller beast with a challenge rating of 4 or lower. On subsequent turns, you can use your actions to transform affected creatures into new forms. The transformation lasts for the Duration for each target, or until the target drops to 0 hit points or dies. You can choose a different form for each target. A target's game Statistics are replaced by the Statistics of the chosen beast, though the target retains its alignment and Intelligence, Wisdom, and Charisma scores. The target assumes the hit points of its new form, and when it reverts to its normal form, it returns to the number of hit point it had before it transformed. If it reverts as a result of Dropping to 0 Hit Points, any excess damage carries over to its normal form. As long as the excess damage doesn't reduce the creature's normal form to 0 hit points, it isn't knocked Unconscious. The creature is limited in the actions it can perform by the nature of its new form, and it can't speak or cast Spells. The target's gear melds into the new form. The target can't activate, wield, or otherwise benefit from any of its Equipment.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to 24 hours",
         "level": 8,
         "range": "30 ft"
@@ -74,7 +74,7 @@
      {
         "name": "Animate Dead",
         "description": "This spell creates an Undead servant. Choose a pile of bones or a corpse of a Medium or Small humanoid within range. Your spell imbues the target with a foul mimicry of life, raising it as an Undead creature. The target becomes a Skeleton if you chose bones or a Zombie if you chose a corpse (the DM has the creature's game statistics). On each of your turns, you can use a Bonus Action to mentally Command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can Command any or all of them at the same time, issuing the same Command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general Command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete. The creature is under your control for 24 hours, after which it stops obeying any Command you've given it. To maintain the control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell, rather than animating a new one. At Higher Levels: When you cast this spell using a spell slot of 4th level or higher, you animate or reassert control over two additional Undead creatures for each slot above 3rd. Each of the creatures must come from a different corpse or pile of bones.",
-        "casting time": "1 minute",
+        "castingTime": "1 minute",
         "duration": "instantaneous",
         "level": 3,
         "range": "10 ft"
@@ -82,26 +82,8 @@
     
      {
         "name": "Animate Objects",
-        "description": "Objects come to life at your Command. Choose up to ten nonmagical Objects within range that are not being worn or carried. Medium Targets count as two Objects, Large Targets count as four Objects, Huge Targets count as eight Objects. You can't animate any object larger than Huge. Each target animates and becomes a creature under your control until the spell ends or until reduced to 0 hit points. As a Bonus Action, you can mentally Command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can Command any or all of them at the same time, issuing the same Command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general Command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete."
-
-            "Animated Object Statistics"
-
-"Tiny - HP: 20, AC: 18, Attack: +8 to hit, 1d4 + 4 damage, Str: 4, Dex: 18"
-
-"Small - HP: 25, AC: 16, Attack: +6 to hit, 1d8 + 2 damage, Str: 6, Dex: 14"
-
-"Medium - HP: 40, AC: 13, Attack: +5 to hit, 2d6 + 1 damage, Str: 10, Dex: 12"
-
-"Large - HP: 50, AC: 10, Attack: +6 to hit, 2d10 + 2 damage, Str: 14, Dex: 10"
-
-"Huge - HP: 80, AC: 10, Attack: +8 to hit, 2d12 + 4 damage, Str: 18, Dex: 6"
-
-"An animated object is a construct with AC, hit points, attacks, Strength, and Dexterity determine by its size. Its Constitution is 10 and its Intelligence and Wisdom are 3, and its Charisma is 1. Its speed is 30 feet, if the Objects lack legs or other appendages it can use for locomotion, it instead has a flying speed of 30 feet and can hover. If the object is securely attached to a surface or larger object, such as a chain bolted to a wall, its speed is 0. It has blindsight with a radius of 30 feet and is blind beyond that distance. When the animated object drops to 0 hit points, it reverts to its original object form, and any remaining damage carries over to its original object form."
-
-"If you Command an object to Attack, it can make a single melee Attack against a creature within 5 feet of it. It makes a slam Attack with an Attack bonus and bludgeoning damage determine by its size. The DM might rule that a specific object inflicts slashing or piercing damage based on its form."
-
-"At Higher Levels: If you cast this spell using a spell slot of 6th level or higher, you can animate two additional Objects for each slot level above 5th.",
-        "casting time": "1 action",
+        "description": "Objects come to life at your Command. Choose up to ten nonmagical Objects within range that are not being worn or carried. Medium Targets count as two Objects, Large Targets count as four Objects, Huge Targets count as eight Objects. You can't animate any object larger than Huge. Each target animates and becomes a creature under your control until the spell ends or until reduced to 0 hit points. As a Bonus Action, you can mentally Command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can Command any or all of them at the same time, issuing the same Command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general Command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete. <br />Animated Object Statistics<br />Tiny - HP: 20, AC: 18, Attack: +8 to hit, 1d4 + 4 damage, Str: 4, Dex: 18<br />Small - HP: 25, AC: 16, Attack: +6 to hit, 1d8 + 2 damage, Str: 6, Dex: 14<br />Medium - HP: 40, AC: 13, Attack: +5 to hit, 2d6 + 1 damage, Str: 10, Dex: 12<br />Large - HP: 50, AC: 10, Attack: +6 to hit, 2d10 + 2 damage, Str: 14, Dex: 10<br />Huge - HP: 80, AC: 10, Attack: +8 to hit, 2d12 + 4 damage, Str: 18, Dex: 6<br />An animated object is a construct with AC, hit points, attacks, Strength, and Dexterity determine by its size. Its Constitution is 10 and its Intelligence and Wisdom are 3, and its Charisma is 1. Its speed is 30 feet, if the Objects lack legs or other appendages it can use for locomotion, it instead has a flying speed of 30 feet and can hover. If the object is securely attached to a surface or larger object, such as a chain bolted to a wall, its speed is 0. It has blindsight with a radius of 30 feet and is blind beyond that distance. When the animated object drops to 0 hit points, it reverts to its original object form, and any remaining damage carries over to its original object form.<br />If you Command an object to Attack, it can make a single melee Attack against a creature within 5 feet of it. It makes a slam Attack with an Attack bonus and bludgeoning damage determine by its size. The DM might rule that a specific object inflicts slashing or piercing damage based on its form.<br />At Higher Levels: If you cast this spell using a spell slot of 6th level or higher, you can animate two additional Objects for each slot level above 5th.",
+        "castingTime": "1 action",
         "duration": "up to 1 minute",
         "level": 5,
         "range": "120 ft"
@@ -110,7 +92,7 @@
      {
         "name": "Antilife Shell",
         "description": "A shimmering barrier extends out from you in a 10-foot radius and moves with you, remaining centered on you and hedging out creatures other than Undead and constructs. The barrier lasts for the Duration. The barrier prevents an affected creature from passing or reaching through. An affected creature can cast Spells or make attacks with ranged or reach Weapons through the barrier. If you move so that an affect creature is forced to pass through the barrier, the spell ends.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to 1 hour",
         "level": 5,
         "range": "Self"
@@ -119,7 +101,7 @@
      {
         "name": "Antimagic Field",
         "description": "A 10-foot-radius Invisible Sphere of antimagic surrounds you. This area is divorced from the magical energy that suffuses the multiverse. Within the Sphere, Spells can't be cast, summoned creatures disappear, and even Magic Items become mundane. Until the spell ends, the Sphere moves with you, centered on you. Spells and other magical effects, except those created by an artifact or a deity, are suppressed in the Sphere and can't protrude into it. A slot expended to cast a suppressed spell is consumed. While an effect is suppressed, it doesn't function, but the time it spends suppressed counts against its Duration. Targeted Effects: Spells and other magical effects, such as Magic Missile and Charm Person, that target a creature or an object in the Sphere have no effect on that target. Areas of Magic: The area of another spell or magical effect, such as Fireball, can't extend into the Sphere. If the Sphere overlaps an area of magic, the part of the area that is covered by the Sphere is suppressed. For example, the flames created by a Wall of Fire are suppressed within the Sphere, creating a gap in the wall if the overlap is large enough. Spells: Any active spell or other magical effect on a creature or an object in the Sphere is suppressed while the creature or object is in it. Magic Items: The properties and powers of Magic Items are suppressed in the Sphere. For example, a +1 long sword in the Sphere functions as a nonmagical long sword. A magic weapon's properties and powers are suppressed if it is used against a target in the Sphere or wielded by an attacker in the Sphere. If a Magic Weapon or piece of magic ammunition fully leaves the Sphere (For example, if you fire a magic arrow or throw a magic spear at a target outside the sphere), the magic of the item ceases to be suppressed as soon as it exits. Magical Travel: Teleportation and Planar Travel fail to work in the Sphere, whether the Sphere is the destination or the departure point for such magical travel. A portal to another location, world, or plane of existence, as well as an opening to an extradimensional space such as that created by the Rope Trick Spells, temporarily closes while in the Sphere. Creatures and Objects: A creature or object summoned or created by magic temporarily winks out of existence in the Sphere. Such a creature instantly reappears once the space the creature occupied is no longer within the Sphere. Dispel Magic: Spells and magical effects such as Dispel Magic have no effect on the Sphere. Likewise, the spheres created by different antimagic field Spells don't nullify each other.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to one hour",
         "level": 8,
         "range": "Self ft"
@@ -128,7 +110,7 @@
      {
         "name": "Antipathy (Sympathy)",
         "description": "This spell attracts or repels creatures of your choice. You target something within range, either a Huge or smaller object or creature or an area that is no larger than a 200-foot cube. Then specify a kind of intelligent creature, such as red dragons, goblins, or vampires. You invest the target with an aura that either attracts or repels the specified creatures for the Duration. Choose antipathy or sympathy as the aura's effect. Antipathy: The Enchantment causes creatures of the kind you designated to feel an intense urge to leave the area and avoid the target. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw or become Frightened. The creature remains Frightened while it can see the target or is within 60 feet of it. While Frightened by the target, the creature must use its Movement to move to the nearest safe spot from which it can't see the target. If the creature moves more than 60 feet from the target and can't see it, the creature is no longer Frightened, but the creature becomes Frightened again if it regains sight of the target or moves within 60 feet of it. Sympathy: The Enchantment causes the specified creatures to feel an intense urge to approach the target while within 60 feet of it or able to see it. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw or use its Movement on each of its turns to enter the area or move within reach of the target. When the creature has done so, it can't willingly move away from the target. If the target damages or otherwise harms an affected creature, the affected creature can make a Wisdom saving throw to end the effect, as described below. Ending the Effect: If an affected creature ends its turn while not within 60 feet of the target or able to see it, the creature makes a Wisdom saving throw. ON a successful save, the creature is no longer affected by the target and recognizes the feeling of repugnance or attraction as magical. In addition, a creature affected by the Spells is allowed another Wisdom saving throw every 24 hours while the spell persists. A creature that successfully saves against this effect is immune to it for 1 minute, after which time it can be affected again.",
-        "casting time": "1 hour",
+        "castingTime": "1 hour",
         "duration": "10 days",
         "level": 8,
         "range": "60 ft"
@@ -137,18 +119,18 @@
      {
         "name": "Aracane Eye",
         "description": "You create an Invisible, magical eye within range that hovers in the air for the Duration. You mentally receive visual information from the eye, which has normal vision and Darkvision out to 30 feet. The eye can look in every direction. As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can't enter another plane of existence. A solid barrier blocks the eye's Movement, but the eye can pass through an opening as small as 1 inch in diameter.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to 1 hour",
-        "level": 4, ,
+        "level": 4, 
         "range": "30 ft"
     },
     
      {
         "name": "Arcane Hand",
         "description": "You create a Large hand of shimmering, translucent force in an unoccupied space that you can see within range. The hand lasts for the spell's Duration, and it moves at your Command, mimicking the movements of your own hand. The hand is an object that has AC 20 and hit points equal to your hit point maximum. If it drops to 0 hit points, the spell ends. It has a Strength of 26 (+8) and a Dexterity of 10 (+0). The hand doesn't fill its space. When you cast the spell and as a Bonus Action on your subsequent turns, you can move the hand up to 60 feet and then cause one of the following effects with it. Clenched Fist. The hand strikes one creature or object within 5 feet of it. Make a melee spell Attack for the hand using your game Statistics. On a hit, the target takes 4d8 force damage. Forceful Hand. The hand attempts to push a creature within 5 feet of it in a direction you choose. Make a check with the hand's Strength contested by the Strength (Athletics) check of the target. If the target is Medium or smaller, you have advantage on the check. If you succeed, the hand pushes the target up to 5 feet plus a number of feet equal to five times your spellcasting ability modifier. The hand moves with the target to remain within 5 feet of it. Grasping Hand. The hand attempts to grapple a Huge or smaller creature within 5 feet of it. You use the hand's Strength score to resolve the grapple. If the target is Medium or smaller, you have advantage on the check. While the hand is Grappling the target, you can use a Bonus Action to have the hand crush it. When you do so, the target takes bludgeoning damage equal to 2d6 + your spellcasting ability modifier. Interposing Hand. The hand interposes itself between you and a creature you choose until you give the hand a different Command. The hand moves to stay between you and the target, providing you with half cover against the target. The target can't move through the hand's space if its Strength score is less than or equal to the hand's Strength score. If its Strength score is higher than the hand's Strength score, the target can move toward you through the hand's space, but that space is difficult terrain for the target. At Higher Levels: When you cast this spell using a spell slot of 6th level or higher, the damage from the clenched fist option increases by 2d8 and the damage from the grasping hand increases by 2d6 for each slot level above 5th.",
-        "casting time": "1 action",
+        "castingTime": "1 action",
         "duration": "up to 1 minute",
         "level": 5,
         "range": "120 ft"
-    },
+    }
 ]

@@ -1,8 +1,13 @@
-Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $timeout, $mdDialog) {
+Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', function ($scope, $timeout, $mdDialog, Spell) {
     $scope.game = {
+        coreDataLoading: true,
         loaded: false,
+        error: "",
         dataFile: {},
-        data: {}
+        data: {},
+        coreData: {
+            spells: []
+        }
     };
 
     $scope.inventoryItems = [
@@ -18,7 +23,41 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', function ($scop
             name: "bedroll",
             damage: 0,
         }
-    ]
+    ];
+
+    function init() {
+        Spell.list({}, function(data, error) {
+            if (typeof error !== "undefined" && error !== null && error.length) {
+                $scope.game.coreData.spells = [];
+                $scope.game.error = error;
+            }
+            else {
+                $scope.game.coreData.spells = data;
+                $scope.game.error = "";
+            }
+            coreDataLoaded();
+        });        
+    };
+    init();
+
+    function coreDataLoaded() {
+        $scope.game.coreDataLoading = false;
+    }
+
+    $scope.cheese = 'tacos';
+
+    $scope.test = function() {
+        Spell.list({}, function(data, error) {
+            if (typeof error !== "undefined" && error !== null && error.length) {
+                $scope.cheese = error;
+            }
+            else {
+                $scope.cheese = data;
+            }
+
+        });
+
+    }
 
     function loadFile(file, callback) {
         var reader = new FileReader();

@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="/app/modules/angular-material/1.1.5/angular-material.min.css" rel="stylesheet">
+    <!-- library resources css -->
+    <link href="/app/modules/angular-material/1.1.5/angular-material.min.css" rel="stylesheet">
+    <!-- library resources js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+    <script src="/app/modules/angular-material/1.1.5/angular-material.min.js"></script>
 
-<script src="/app/modules/angular-material/1.1.5/angular-material.min.js"></script>
-<!-- File Upload Module files https://github.com/danialfarid/ng-file-upload -->
-<script src="/app/modules/ng-file-upload/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
-<script src="/app/modules/ng-file-upload/ng-file-upload.min.js"></script>
+    <!-- File Upload Module files https://github.com/danialfarid/ng-file-upload -->
+    <script src="/app/modules/ng-file-upload/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="/app/modules/ng-file-upload/ng-file-upload.min.js"></script>
 
-<script src="/app/app.js"></script>
+    <!-- app -->
+    <script src="/app/app.js"></script>
 
-<script src="/app/controllers/main-ctrl.js"></script>
+    <!-- controllers -->
+    <script src="/app/controllers/main-ctrl.js"></script>
+    <!-- These are your services -->
+    <script src="/app/services/spell-service.js"></script>
 </head>
+
 <body ng-app="Clark">
     <div ng-controller="MainCtrl">
-        <div ng-hide="game.loaded">
-            <md-button class="md-primary" ngf-select="loadGameData()" ngf-drop ng-model="game.dataFile" accept="*">Load Game</md-button>
-            <md-button class="md-primary" ng-click="newGameData()">New Game</md-button>
-        </div>
-        <div ng-show="game.loaded">
-            <md-input-container>
-                <label>Name</label>
-                <input type="text" ng-model="game.data.name">
-            </md-input-container><br />
-            <md-input-container>
-                <label>Description</label>
-                <input type="text" ng-model="game.data.description">
-            </md-input-container><br />
-            <md-input-container>
-                <label>Level</label>
-                <input type="number" min="1" max="20" ng-model="game.data.level">
-            </md-input-container><br />
-            Inventory <br />
-            <div ng-repeat="item in game.data.inventory">
-                name: {{ inventoryItems[item].name }} - damage: {{ inventoryItems[item].damage }}
+        <div ng-show="game.coreDataLoading">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
             </div>
-            <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
+        </div>
+        <div ng-show="!game.coreDataLoading && game.error.length">
+            {{game.error}}
+        </div>
+        <div ng-hide="game.coreDataLoading || game.error.length">
+            <div ng-hide="game.loaded">
+                <!-- directives -->
+                <md-button class="md-primary" ngf-select="loadGameData()" ngf-drop ng-model="game.dataFile" accept="*">Load Game</md-button>
+                <md-button class="md-primary" ng-click="newGameData()">New Game</md-button>
+
+            </div>
+            <div ng-show="game.loaded">
+                <md-input-container>
+                    <label>Name</label>
+                    <input type="text" ng-model="game.data.name">
+                </md-input-container><br />
+                <md-input-container>
+                    <label>Description</label>
+                    <input type="text" ng-model="game.data.description">
+                </md-input-container><br />
+                <md-input-container>
+                    <label>Level</label>
+                    <input type="number" min="1" max="20" ng-model="game.data.level">
+                </md-input-container><br />
+                Inventory <br />
+                <div ng-repeat="item in game.data.inventory">
+                    name: {{ inventoryItems[item].name }} - damage: {{ inventoryItems[item].damage }}
+                </div>
+                <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
+                <div>
+                    <md-card ng-repeat="spell in game.coreData.spells">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{spell.name}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p>{{spell.description}}<p>
+                            <div layout="row" layout-align="space-between center">
+                                <div>
+                                    <span class="md-subhead">Level:</span> {{spell.level}}
+                                </div>
+                                <div>
+                                    <span class="md-subhead">Casting time:</span> {{spell.castingTime}}
+                                </div>
+                                <div>
+                                    <span class="md-subhead">Duration:</span> {{spell.duration}}
+                                </div>    
+
+                            </div>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
         </div>
     </div>
 </body>
