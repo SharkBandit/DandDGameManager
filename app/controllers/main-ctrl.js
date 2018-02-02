@@ -1,4 +1,4 @@
-Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', function ($scope, $timeout, $mdDialog, Spell) {
+Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapon' function ($scope, $timeout, $mdDialog, Spell, Weapon) {
     $scope.game = {
         coreDataLoading: true,
         loaded: false,
@@ -6,24 +6,11 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', functi
         dataFile: {},
         data: {},
         coreData: {
-            spells: []
+            spells: [],
+            weapons: []
         }
     };
 
-    $scope.inventoryItems = [
-        {
-            name: "broadsword",
-            damage: 10,
-        },
-        {
-            name: "waterskin",
-            damage: 0,
-        },
-        {
-            name: "bedroll",
-            damage: 0,
-        }
-    ];
 
     function init() {
         Spell.list({}, function(data, error) {
@@ -33,6 +20,15 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', functi
             }
             else {
                 $scope.game.coreData.spells = data;
+                $scope.game.error = "";
+            }
+        Weapon.list_weapons({}, function(data, error) {
+            if (typeof error !== "undefined" && error !== null && error.length) {
+                $scope.game.coreData.weapons = [];
+                $scope.game.error = error;
+            }
+            else {
+                $scope.game.coreData.weapons = data;
                 $scope.game.error = "";
             }
             coreDataLoaded();

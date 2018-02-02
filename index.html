@@ -56,8 +56,18 @@
                     <input type="number" min="1" max="20" ng-model="game.data.level">
                 </md-input-container><br />
                 Inventory <br />
-                <div ng-repeat="item in game.data.inventory">
-                    name: {{ inventoryItems[item].name }} - damage: {{ inventoryItems[item].damage }}
+                <div>
+                    <md-card ng-repeat ="weapon in game.coreData.weapons">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{weapon.name}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p>{{weapon.damage}}<p> 
+                        </md-card-content>
+                    </md-card>
+                    
                 </div>
                 <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
                 <div>
