@@ -1,4 +1,4 @@
-Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapon' function ($scope, $timeout, $mdDialog, Spell, Weapon) {
+Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapon', 'CharacterClass', function ($scope, $timeout, $mdDialog, Spell, Weapon, CharacterClass) {
     $scope.game = {
         coreDataLoading: true,
         loaded: false,
@@ -7,8 +7,12 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapo
         data: {},
         coreData: {
             spells: [],
-            weapons: []
-        }
+            weapons: [],
+            characterClasses: []
+        },
+        classWeaponOptions: [],
+        selectedMainWeapon: 0,
+        selectedOffHandWeapon: 0
     };
 
 
@@ -22,7 +26,14 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapo
                 $scope.game.coreData.spells = data;
                 $scope.game.error = "";
             }
-        Weapon.list_weapons({}, function(data, error) {
+            spellDataLoaded();
+        });
+    }
+
+    init();
+
+    function spellDataLoaded() {
+        Weapon.list({}, function(data, error) {
             if (typeof error !== "undefined" && error !== null && error.length) {
                 $scope.game.coreData.weapons = [];
                 $scope.game.error = error;
@@ -31,10 +42,23 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapo
                 $scope.game.coreData.weapons = data;
                 $scope.game.error = "";
             }
+            weaponDataLoaded();
+        });
+    }
+
+    function weaponDataLoaded() {
+        CharacterClass.list({}, function(data, error) {
+            if (typeof error !== "undefined" && error !== null && error.length) {
+                $scope.game.coreData.characterClasses = [];
+                $scope.game.error = error;
+            }
+            else {
+                $scope.game.coreData.characterClasses = data;
+                $scope.game.error = "";
+            }
             coreDataLoaded();
-        });        
-    };
-    init();
+        });
+    }
 
     function coreDataLoaded() {
         $scope.game.coreDataLoading = false;
@@ -99,14 +123,14 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapo
         if (typeof $scope.game.data.name == 'undefined') {
             $scope.game.data.name = "New Character";
         }
-        if (typeof $scope.game.data.description == 'undefined') {
-            $scope.game.data.description = "Fighter";
+        if (typeof $scope.game.data.characterClass == 'undefined') {
+            $scope.game.data.characterClass = 0;
         }
         if (typeof $scope.game.data.level == 'undefined') {
             $scope.game.data.level = 1;
         }
-        if (typeof $scope.game.data.inventory == 'undefined') {
-            $scope.game.data.inventory = [0,1];
+        if (typeof $scope.game.data.weapons == 'undefined') {
+            $scope.game.data.weapons = [];
         }
         // eventually should look at removing obsolete data properties that we dont support anymore to keep the file size down.
     }
@@ -114,9 +138,44 @@ Clark.controller('MainCtrl', ['$scope', '$timeout', '$mdDialog', 'Spell', 'Weapo
     $scope.newGameData = function() {
         $scope.game.data = {};
         assignDefaultData();
+        $scope.changeCharacterClass();
         $timeout(function() {
             $scope.game.loaded = true;
         });
+    }
+
+    $scope.changeCharacterClass = function() {
+        //to be clear this creates a copy of the characterClass property's value and stores in the variable selectedClassIndex
+        //BUT changes to the variable selectedClassIndex do not effect the value of $scope.game.data.characterClass
+        //BUTTTTTT if it's an object changes between the two are linked however, if they are any other data types (int, string) they are not linked
+        //meaning that this update does not effect $scope.game.data.characterClass
+        var selectedClassIndex = $scope.game.data.characterClass;
+        if (typeof $scope.game.coreData.characterClasses[selectedClassIndex] === "undefined") {
+            selectedClassIndex = 0;
+            //updating manually because selectedClassIndex changes do not effect original characterClass property
+            $scope.game.data.characterClass = 0;
+        }
+        var selectedCharacterClass = $scope.game.coreData.characterClasses[selectedClassIndex];
+        $scope.game.classWeaponOptions = [];
+        for (var i = 0; i < selectedCharacterClass.weaponOptions.length; i++) {
+            var thisWeaponOptionId = selectedCharacterClass.weaponOptions[i];
+            for (var x = 0; x < $scope.game.coreData.weapons.length; x++) {
+                if ($scope.game.coreData.weapons[x].id === thisWeaponOptionId) {
+                    var thisWeapon = $scope.game.coreData.weapons[x];
+                    $scope.game.classWeaponOptions.push(thisWeapon);
+                }
+            }
+        }
+    }
+
+    $scope.changeMainWeapon = function() {
+        var selectedMainWeapon = $scope.game.selectedMainWeapon;
+        console.log(selectedMainWeapon);
+    }
+
+    $scope.changeOffHandWeapon = function() {
+        var selectedOffHandWeapon = $scope.game.selectedOffHandWeapon;
+        console.log(selectedOffHandWeapon);
     }
 
     $scope.saveGameData = function() {

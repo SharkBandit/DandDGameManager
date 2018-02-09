@@ -23,6 +23,8 @@
     <script src="/app/controllers/main-ctrl.js"></script>
     <!-- These are your services -->
     <script src="/app/services/spell-service.js"></script>
+    <script src="/app/services/weapon-service.js"></script>
+    <script src="/app/services/characterClass-service.js"></script>
 </head>
 
 <body ng-app="Clark">
@@ -43,56 +45,74 @@
 
             </div>
             <div ng-show="game.loaded">
-                <md-input-container>
+                <md-input-container class="md-block">
                     <label>Name</label>
                     <input type="text" ng-model="game.data.name">
-                </md-input-container><br />
-                <md-input-container>
-                    <label>Description</label>
-                    <input type="text" ng-model="game.data.description">
-                </md-input-container><br />
-                <md-input-container>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Class</label>
+                    <md-select ng-model="game.data.characterClass" ng-change="changeCharacterClass()">
+                        <md-option ng-repeat="class in game.coreData.characterClasses" ng-value="$index">{{class.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
                     <label>Level</label>
                     <input type="number" min="1" max="20" ng-model="game.data.level">
-                </md-input-container><br />
-                Inventory <br />
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Main Weapon</label>
+                    <md-select ng-model="game.selectedMainWeapon" ng-change="changeMainWeapon()">
+                        <md-option ng-repeat="weaponOption in game.classWeaponOptions" ng-value="weaponOption">
+                            {{weaponOption.name}} | {{weaponOption.damage}} | {{weaponOption.twoHanded ? "Two Handed" : "One Handed"}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" ng-show="!game.selectedMainWeapon.twoHanded">
+                    <label>Off-Hand Weapon</label>
+                    <md-select ng-model="game.selectedOffHandWeapon" ng-change="changeOffHandWeapon()">
+                        <md-option ng-repeat="weaponOption in game.classWeaponOptions" ng-value="weaponOption" ng-if="!weaponOption.twoHanded">{{weaponOption.name}} | {{weaponOption.damage}}</md-option>
+                    </md-select>
+                </md-input-container>
                 <div>
-                    <md-card ng-repeat ="weapon in game.coreData.weapons">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{weapon.name}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-                            <p>{{weapon.damage}}<p> 
-                        </md-card-content>
-                    </md-card>
-                    
-                </div>
-                <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
-                <div>
-                    <md-card ng-repeat="spell in game.coreData.spells">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{spell.name}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-                            <p>{{spell.description}}<p>
-                            <div layout="row" layout-align="space-between center">
-                                <div>
-                                    <span class="md-subhead">Level:</span> {{spell.level}}
-                                </div>
-                                <div>
-                                    <span class="md-subhead">Casting time:</span> {{spell.castingTime}}
-                                </div>
-                                <div>
-                                    <span class="md-subhead">Duration:</span> {{spell.duration}}
-                                </div>    
+                    Weapons <br />
+                    <div>
+                        <md-card ng-repeat="weapon in game.data.weapons">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">{{game.coreData.weapons[weapon].name}}</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p>{{game.coreData.weapons[weapon].damage}}<p>
+                            </md-card-content>
+                        </md-card>
 
-                            </div>
-                        </md-card-content>
-                    </md-card>
+                    </div>
+                    <md-button class="md-primary md-raised" ng-click="saveGameData()">Save Game</md-button>
+                    <div>
+                        <md-card ng-repeat="spell in game.coreData.spells">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">{{spell.name}}</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p>{{spell.description}}</p>
+                                <div layout="row" layout-align="space-between center">
+                                    <div>
+                                        <span class="md-subhead">Level:</span> {{spell.level}}
+                                    </div>
+                                    <div>
+                                        <span class="md-subhead">Casting time:</span> {{spell.castingTime}}
+                                    </div>
+                                    <div>
+                                        <span class="md-subhead">Duration:</span> {{spell.duration}}
+                                    </div>
+
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
                 </div>
             </div>
         </div>

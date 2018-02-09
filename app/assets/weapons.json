@@ -1,5 +1,35 @@
 [
     {
+    	"id": 1,
         "name": "Dagger",
-        "damage": "1d4 piercing"
-    }]
+        "damage": "1d4 piercing",
+        "twoHanded": false
+    },
+    {
+    	"id": 2,
+    	"name": "Greatsword",
+    	"damage": "1d8 piercing",
+    	"twoHanded": true
+
+    },
+    {
+    	"id": 3,
+    	"name": "Staff",
+    	"damage": "1d6 bludgeoning",
+    	"twoHanded": true
+
+    },
+    {
+    	"id": 4,
+    	"name": "Greatclub",
+    	"damage": "1d6 bludgeoning",
+    	"twoHanded": true
+    },
+    {
+    	"id": 5,
+    	"name": "Handaxe",
+    	"damage": "1d4 slashing",
+    	"twoHanded": false
+
+    }
+]

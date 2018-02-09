@@ -1,4 +1,4 @@
-Clark.factory('Spell', ['$http', function($http) {
+Clark.factory('CharacterClass', ['$http', function($http) {
 	function _then(callback, data, error) {
 		//this is used to execute a function when the service method is finished in the event that the method is
 		//running synchronous code meaning: running in the background while rest of app finishes loading
@@ -10,11 +10,11 @@ Clark.factory('Spell', ['$http', function($http) {
 	//all methods should ideally have two parameters, the first one being options you can pass it (how you want this method completed/which record you
 	//want returned), second being callback which is executed when the method is finished doing what it needs to do
 	var _list = function(options, callback) {
-		$http.post('/app/assets/spells.json', {}, {}).then(function(response) {
+		$http.post('/app/assets/characterClass.json', {}, {}).then(function(response) {
 			_then(callback, response.data);
 		}).catch(function(response) {
 			console.error(response);
-			_then(callback, null, "Something's fucked up with the spell data file :( Malformed json or file not found");
+			_then(callback, null, "Something's fucked up with the Character Class data file :( Malformed json or file not found");
 		});
 
 	}

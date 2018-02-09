@@ -9,9 +9,8 @@ Clark.factory('Weapon', ['$http', function($http) {
 
 	//all methods should ideally have two parameters, the first one being options you can pass it (how you want this method completed/which record you
 	//want returned), second being callback which is executed when the method is finished doing what it needs to do
-	var _list_weapons = function(options, callback) {
+	var _list = function(options, callback) {
 		$http.post('/app/assets/weapons.json', {}, {}).then(function(response) {
-			console.log(response);
 			_then(callback, response.data);
 		}).catch(function(response) {
 			console.error(response);
@@ -27,7 +26,7 @@ Clark.factory('Weapon', ['$http', function($http) {
 		//object with a property that is set to a function, that property is now a "method"
 		// actual method name is list without underscore
 		//underscore addded to prevent naming conflicts
-		list_weapons: _list_weapons,
+		list: _list,
 	}
 
 }]);

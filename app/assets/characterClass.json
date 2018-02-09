@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Barbarian",
+		"startingItems": [],
+		"weaponOptions": [2,4,5]
+	},
+	{
+		"name": "Rogue",
+		"startingItems": [],
+		"weaponOptions": [1]
+	},
+	{
+		"name": "Wizard",
+		"startingItems": [],
+		"weaponOptions": [3]
+	}
+]
